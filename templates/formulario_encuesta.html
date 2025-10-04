@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta de Satisfacción</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='formulario_encuesta.css') }}">
+</head>
+<body>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="max-width: 200px;">
+    </div>
+    <form method="post">
+        <div class="stars">
+            {% for i in range(5, 0, -1) %}
+            <input type="radio" id="star{{i}}" name="rating" value="{{i}}">
+            <label for="star{{i}}">&#9733;</label>
+            {% endfor %}
+        </div>
+        <textarea name="comments" placeholder="Agrega tus comentarios aquí..."></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
